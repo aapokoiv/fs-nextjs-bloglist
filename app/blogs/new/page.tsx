@@ -14,7 +14,7 @@ const NewBlog = () => {
         <div>
           <label>
             Author
-            <input type="text" name="Author" required />
+            <input type="text" name="author" required />
           </label>
         </div>
         <div>
