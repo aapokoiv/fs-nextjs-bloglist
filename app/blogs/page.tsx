@@ -13,24 +13,24 @@ const Blogs = async ({
   const blogs = await getBlogs()
   const sortedBlogs = blogs.sort((a, b) => b.likes - a.likes)
 
-  const filteredBlogs = (filter != null) ? sortedBlogs.filter((blog) => blog.title.toLowerCase().includes(filter)) : sortedBlogs
+  const filteredBlogs = (filter != null) ? sortedBlogs.filter((blog) => blog.title.toLowerCase().includes(filter.toLowerCase())) : sortedBlogs
 
   return (
-    <div>
-      <h2>Blogs</h2>
-      <form action={updateSearch}>
-        <input type="text" name="search" />
-        <button type="submit">
+    <div className="space-y-6">
+      <h2 className="page-title">Blogs</h2>
+      <form className="flex flex-col gap-3 sm:flex-row" action={updateSearch}>
+        <input data-testid="filter-input" className="search-input" aria-label="Search blogs by title" type="text" name="search" defaultValue={filter} />
+        <button data-testid="search-button" className="button" type="submit">
           Search
         </button>
       </form>
-      <ul>
+      <ul data-testid="blogs-list" className="grid gap-4 sm:grid-cols-2">
         {filteredBlogs.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blogs/${blog.id}`}>{blog.title}</Link>
+          <li className="panel space-y-2 break-words" key={blog.id}>
+            <Link className="text-link text-lg" href={`/blogs/${blog.id}`}>{blog.title}</Link>
             <p>author: {blog.author}</p>
             <p>url: {blog.url}</p>
-            <p>likes: {blog.likes}</p>
+            <p>{blog.likes} likes</p>
           </li>
         ))}
       </ul>

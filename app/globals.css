@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f1d6b8;
+  --foreground: #a18276;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: #b9d2b1;
+  --color-surface: #dac6b5;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #a18276;
+    --foreground: #eeeeee;
   }
 }
 
@@ -23,4 +25,98 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-surface p-5 sm:p-8;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  }
+
+  .form-fields {
+    @apply space-y-5;
+  }
+
+  .form-fields label {
+    @apply flex flex-col gap-2 text-sm font-medium;
+  }
+
+  .form-fields input,
+  .search-input {
+    @apply w-full min-w-0 rounded-lg border border-surface bg-background px-3 py-2.5 text-base text-foreground outline-none focus:border-foreground focus:ring-2 focus:ring-accent;
+  }
+
+  .form-fields p {
+    @apply mt-2 text-sm;
+  }
+
+  .button {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-foreground bg-foreground px-4 py-2.5 text-sm font-semibold text-background transition-colors hover:border-accent hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground;
+  }
+
+  .text-link {
+    @apply rounded-sm font-medium underline decoration-surface underline-offset-4 hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground;
+  }
+
+  .nav-link {
+    @apply rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-background focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground;
+  }
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+}
+
+.markdown h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin: 2rem 0 0.75rem;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.markdown p {
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+.markdown a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.markdown a:hover {
+  color: #2563eb;
+}
+
+.markdown ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  line-height: 1.7;
+  list-style-type: disc;
+}
+
+.markdown ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  line-height: 1.7;
+  list-style-type: decimal;
+}
+
+.markdown li {
+  margin: 0.5rem 0;
+}
+
+.markdown hr {
+  margin: 2rem 0;
+  opacity: 0.2;
 }

@@ -1,11 +1,11 @@
 {
-  "id": "f4e45fa8-7a07-4f6d-a7da-a5c1735c8ea0",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "dfc6c669-9d22-4268-973a-b030ce9d01e1",
+  "prevId": "f4e45fa8-7a07-4f6d-a7da-a5c1735c8ea0",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.notes": {
-      "name": "notes",
+    "public.blogs": {
+      "name": "blogs",
       "schema": "",
       "columns": {
         "id": {
